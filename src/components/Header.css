@@ -1,0 +1,48 @@
+.header {
+  background-color: #14161a;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.header__container a {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  color: #87ceeb;
+}
+
+.header-select {
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.header-select button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 17px 8px 19px;
+  border-radius: 4px;
+  background-color: #87ceeb;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24.5px;
+  color: #000000de;
+  transition: all 0.7s;
+}
+.header-select button:hover{
+  background-color: #14161a;
+  color: white;
+}
+.header-select select {
+  background-color: #14161a;
+  color: white;
+  cursor: pointer;
+  border: none;
+}

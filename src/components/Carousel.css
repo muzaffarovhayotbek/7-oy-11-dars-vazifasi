@@ -1,0 +1,23 @@
+.hero {
+  padding-top: 54.89px;
+}
+.hero h1 {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 72px;
+  text-align: center;
+  color: #87ceeb;
+}
+.hero p {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21.98px;
+  text-align: center;
+  color: #a9a9a9;
+}
+.carousel {
+  padding-top: 20px;
+  justify-content: center;
+}

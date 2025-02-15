@@ -1,0 +1,53 @@
+@import url('./fonts.css');
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Montserrat', sans-serif;
+}
+
+ul, li,
+ol {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+img {
+  object-fit: cover;
+  display: flex;
+  cursor: pointer;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  height: 10 0%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #14161a;
+}
+.container {
+  width: 100%;
+  max-width: 1232px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+@layer components {
+  .hero {
+    background-image: url('./assets/div.jss10.png');
+    height: 400px;
+  }
+}
