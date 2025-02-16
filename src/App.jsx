@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import MainLayouts from './layouts/MainLayouts';
 import Details from './pages/Details/Details';
 import Home from './pages/Home/Home';
+import ErrorPage from './pages/Error/ErrorPage';
 
 function App() {
   return (
@@ -17,13 +18,14 @@ function App() {
           }
         ></Route>
         <Route
-          path="/:id"
+          path="/details/:id"
           element={
             <MainLayouts>
               <Details />
             </MainLayouts>
           }
         ></Route>
+        <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </div>
   );

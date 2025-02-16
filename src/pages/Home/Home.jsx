@@ -5,8 +5,10 @@ import axios from 'axios';
 import icon from '../../assets/icon.svg';
 import pagination from '../../assets/pagination.svg';
 import right from '../../assets/right.svg';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigate = useNavigate()
   const [bitcoins, setBitcoins] = useState([]);
   const [page, setPage] = useState(1);
   useEffect(() => {
@@ -21,6 +23,10 @@ function Home() {
         console.log(error);
       });
   }, [page]);
+
+  function handleRedirect(id){
+    navigate(`/details/${id}`)
+  }
   return (
     <div>
       <Carousel />
@@ -38,7 +44,7 @@ function Home() {
       {bitcoins.length > 0 &&
         bitcoins.map((bitcoin) => {
           return (
-            <div className="container bitcoin" key={bitcoin.id}>
+            <div onClick={() => handleRedirect(bitcoin.id)} className="container bitcoin" key={bitcoin.id}>
               <div className="bitcoin-main">
                 <img src={bitcoin.image} width={50} alt={bitcoin.name} />
                 <div className="main">
