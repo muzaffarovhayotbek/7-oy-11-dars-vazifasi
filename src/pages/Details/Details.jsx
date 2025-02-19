@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Chart from 'react-apexcharts';
 
-
 function Details() {
   const { id } = useParams();
   const [details, setDetails] = useState(null);
@@ -61,27 +60,40 @@ function Details() {
     <div className="details">
       {details ? (
         <div className="container">
-          <a href="/" className="back">Back</a>
+          <a href="/" className="back">
+            Back
+          </a>
           <div className="detail">
             <img src={details.image.large} alt={details.name} width={200} />
             <h2>{details.name}</h2>
             <p className="details-desc">{details.description.en}</p>
             <div className="details-info">
               <p className="details-rank">
-                Rank: <span className="details-num">{details.market_cap_rank}</span>
-          <Chart options={chartOptions} series={chartSeries} type="line" height={300} />
+                Rank:{' '}
+                <span className="details-num">{details.market_cap_rank}</span>
+                <Chart
+                  options={chartOptions}
+                  series={chartSeries}
+                  type="line"
+                  height={300}
+                />
               </p>
               <p className="details-price">
                 Current Price:
-                <span className="price"> ${details.market_data.current_price.usd} </span>
+                <span className="price">
+                  {' '}
+                  ${details.market_data.current_price.usd}{' '}
+                </span>
               </p>
               <p className="details-market">
                 Market Cap:
-                <span className="details-data"> ${details.market_data.market_cap.usd} </span>
+                <span className="details-data">
+                  {' '}
+                  ${details.market_data.market_cap.usd}{' '}
+                </span>
               </p>
             </div>
           </div>
-
 
           {/* <div className="buttons">
             <button className="hour">24 Hours</button>
