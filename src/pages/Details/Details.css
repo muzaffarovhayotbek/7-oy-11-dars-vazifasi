@@ -1,185 +1,129 @@
 .details {
-  padding-top: 25px;
+  padding: 25px;
+  color: #fff;
 }
+
+/* .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+} */
 
 .detail {
   width: 600px;
-  height: 787px;
   border-right: 2px solid #808080;
-  padding-left: 25px;
-  padding-right: 24px;
+  padding: 25px;
 }
+
 .detail img {
-  margin-left: 172px;
+  display: block;
+  margin: 0 auto;
   width: 200px;
   height: 200px;
-  margin-right: 174px;
 }
+
 .details h2 {
   text-align: center;
-  font-family: 'Montserrat';
-  font-weight: 700;
   font-size: 48px;
-  line-height: 56.02px;
-  color: #ffffff;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-weight: 700;
+  margin: 20px 0;
 }
 
 .details-desc {
-  padding-bottom: 22px;
-  width: 547px;
-  font-family: 'Montserrat';
-  font-weight: 400;
   font-size: 16px;
-  line-height: 28px;
-  color: #ffffff;
+  line-height: 1.8;
 }
 
-.details-rank {
-  font-family: 'Montserrat';
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 32.02px;
-  color: #ffffff;
-  padding-bottom: 19.99px;
+.details-info {
+  margin-top: 20px;
 }
+
+.details-rank,
+.details-price,
+.details-market {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.details-num,
+.price,
+.details-data {
+  font-weight: 400;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid #87ceeb;
+  background: #14161a;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.buttons button:hover,
+.buttons button.active {
+  background: #87ceeb;
+  color: #000;
+}
+
+.loading,
+.error {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
 .back {
   font-size: 24px;
   color: blue;
   text-decoration: underline;
-  display: inline-block;
   font-weight: bold;
   cursor: pointer;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
-.btn-link {
-  padding: 0;
-  background: none;
-  border: none;
-  color: inherit;
-  text-align: center;
-}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.text-2xl {
-  font-size: 1.5rem;
-}
+  .detail {
+    border-right: none;
+    width: 100%;
+  }
 
-.details-price {
-  padding-bottom: 20px;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 32.02px;
-  color: #ffffff;
-}
+  .chart-container {
+    width: 100%;
+  }
 
-.price {
-  padding-left: 13px;
-  font-family: '  Montserrat';
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 32.02px;
-  color: #ffffff;
-}
+  .buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-.details-market {
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 32.02px;
-  color: #ffffff;
-}
-
-.details-data {
-  padding-left: 13px;
-
-  font-family: 'Montserrat';
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 32.02px;
-  color: #ffffff;
-}
-
-.details-num {
-  padding-left: 13px;
-  font-family: 'Montserrat';
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 32.02px;
-  color: #ffffff;
-}
-.buttons {
-  margin-left: 400px;
-  align-items: center;
-  display: flex;
-  gap: 38px;
-}
-
-.hour {
-  cursor: pointer;
-
-  border: 1px solid #87ceeb;
-  padding-top: 11px;
-  padding-left: 21px;
-  padding-right: 187px;
-  padding-bottom: 11px;
-  background-color: #87ceeb;
-  border-radius: 5px;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19.5px;
-  color: #000000;
-}
-
-.days {
-  cursor: pointer;
-
-  border: 1px solid #87ceeb;
-  padding-top: 11px;
-  padding-left: 21px;
-  padding-bottom: 11px;
-  padding-right: 199px;
-  border-radius: 5px;
-  font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19.5px;
-  background-color: #14161a;
-  color: #ffffff;
-}
-
-.month {
-  cursor: pointer;
-
-  border: 1px solid #87ceeb;
-  padding-top: 11px;
-  padding-left: 21px;
-  padding-bottom: 11px;
-  padding-right: 187px;
-  border-radius: 5px;
-  font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19.5px;
-  background-color: #14161a;
-  color: #ffffff;
-}
-
-.year {
-  cursor: pointer;
-  padding-top: 11px;
-  background-color: #14161a;
-
-  padding-left: 21px;
-  padding-bottom: 11px;
-  padding-right: 218px;
-  border: 1px solid #87ceeb;
-  border-radius: 5px;
-  font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19.5px;
-  color: #ffffff;
+  .buttons button {
+    flex: 1 1 45%;
+    text-align: center;
+  }
 }
