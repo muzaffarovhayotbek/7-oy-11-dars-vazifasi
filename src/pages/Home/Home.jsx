@@ -5,12 +5,15 @@ import axios from 'axios';
 import icon from '../../assets/icon.svg';
 import pagination from '../../assets/pagination.svg';
 import right from '../../assets/right.svg';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [bitcoins, setBitcoins] = useState([]);
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState('');
+  const [field, setField] = useState('');
+
   useEffect(() => {
     axios
       .get(
@@ -24,15 +27,34 @@ function Home() {
       });
   }, [page]);
 
-  function handleRedirect(id){
-    navigate(`/details/${id}`)
+  useEffect(() => {
+    if (field.length === 0) {
+      setSearch(bitcoins);
+    } else {
+      const filtered = bitcoins.filter((item) =>
+        item.name.toLowerCase().includes(field.toLowerCase())
+      );
+      setSearch(filtered);
+    }
+  }, [field, bitcoins]);
+
+  function handleRedirect(id) {
+    navigate(`/details/${id}`);
   }
+
   return (
     <div>
       <Carousel />
       <div className="container home">
         <h2>Cryptocurrency Prices by Market Cap</h2>
-        <input type="text" placeholder="Search For a Crypto Currency.." />
+        <input
+          value={field}
+          onChange={(e) => {
+            setField(e.target.value);
+          }}
+          type="text"
+          placeholder="Search For a Crypto Currency.."
+        />
         <div className="title container">
           <h2>Coin</h2>
           <h2>Price</h2>
@@ -41,31 +63,31 @@ function Home() {
         </div>
       </div>
 
-      {bitcoins.length > 0 &&
-        bitcoins.map((bitcoin) => {
-          return (
-            <div onClick={() => handleRedirect(bitcoin.id)} className="container bitcoin" key={bitcoin.id}>
-              <div className="bitcoin-main">
-                <img src={bitcoin.image} width={50} alt={bitcoin.name} />
-                <div className="main">
-                  <h2 className="main-symbol">
-                    {bitcoin?.symbol.toUpperCase()}
-                  </h2>
-                  <li className="main-name">{bitcoin.name}</li>
-                </div>
+      {search.length > 0 &&
+        search.map((bitcoin) => (
+          <div
+            onClick={() => handleRedirect(bitcoin.id)}
+            className="container bitcoin"
+            key={bitcoin.id}
+          >
+            <div className="bitcoin-main">
+              <img src={bitcoin.image} width={50} alt={bitcoin.name} />
+              <div className="main">
+                <h2 className="main-symbol">{bitcoin?.symbol.toUpperCase()}</h2>
+                <li className="main-name">{bitcoin.name}</li>
               </div>
-
-              <li className="bitcoin-price">
-                ${bitcoin.current_price.toLocaleString()}
-              </li>
-              <li className="change">
-                <img src={icon} alt="icon" width={26} />
-                {bitcoin.price_change_percentage_24h.toFixed(2)} %
-              </li>
-              <li className="cap">${bitcoin.market_cap.toLocaleString()}</li>
             </div>
-          );
-        })}
+
+            <li className="bitcoin-price">
+              ${bitcoin.current_price.toLocaleString()}
+            </li>
+            <li className="change">
+              <img src={icon} alt="icon" width={26} />
+              {bitcoin.price_change_percentage_24h.toFixed(2)} %
+            </li>
+            <li className="cap">${bitcoin.market_cap.toLocaleString()}</li>
+          </div>
+        ))}
 
       <div className="container">
         <ul className="pagion">
